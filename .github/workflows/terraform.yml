@@ -8,6 +8,10 @@ on:
 jobs:
   terraform:
     runs-on: ubuntu-latest
+    env:
+      TF_VAR_checkly_account_id: ${{ secrets.CHECKLY_ACCOUNT_ID }}
+      TF_VAR_checkly_api_key: ${{ secrets.CHECKLY_API_KEY }}
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -28,6 +32,3 @@ jobs:
 
       - name: Terraform Apply
         run: terraform apply -auto-approve tfplan
-        env:
-          TF_VAR_checkly_account_id: ${{ secrets.CHECKLY_ACCOUNT_ID }}
-          TF_VAR_checkly_api_key: ${{ secrets.CHECKLY_API_KEY}}
