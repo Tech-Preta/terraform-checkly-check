@@ -1,0 +1,18 @@
+{
+    "name": "terraform-checkly-check",
+    "version": "1.0.0",
+    "description": "Monitoramento do site nataliagranato.xyz usando Checkly",
+    "scripts": {
+        "test": "npx checkly test",
+        "test:debug": "npx checkly test --debug",
+        "test:local": "npx playwright test https-nataliagranato-xyz.spec.ts",
+        "test:ui": "npx playwright test --ui",
+        "install:deps": "npx playwright install chromium",
+        "setup": "npm install && npm run install:deps"
+    },
+    "devDependencies": {
+        "@checkly/cli": "^0.2.29",
+        "@playwright/test": "latest",
+        "dotenv": "^16.0.3"
+    }
+}
