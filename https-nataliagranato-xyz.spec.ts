@@ -9,7 +9,7 @@ test('Verificar site nataliagranato.xyz', async ({ page }) => {
     // Aumenta o timeout da navegação para 60 segundos
     await page.goto('https://www.nataliagranato.xyz', {
         timeout: 60000,
-        waitUntil: 'networkidle' // Espera até que não haja mais requisições de rede
+        waitUntil: 'load' // networkidle nunca dispara neste site (requests longos de analytics); 'load' é o recomendado
     });
 
     console.log('Página carregada, verificando URL...');
